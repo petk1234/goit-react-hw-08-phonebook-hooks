@@ -26,7 +26,7 @@ function LoginPage() {
     console.log(token);
     if (token !== null) {
       console.log("from login to contacts");
-      //   navigate(`${routes.contacts}`);
+      navigate(`${routes.contacts}`);
     }
   });
   return (
