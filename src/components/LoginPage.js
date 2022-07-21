@@ -19,14 +19,14 @@ function LoginPage() {
     e.preventDefault();
     // navigate(`${routes.contacts}`);
     dispatch(authOperations.loginUser(email, password));
-    navigate(`${routes.contacts}`);
+    // navigate(`${routes.contacts}`);
   };
   useEffect(() => {
     console.log("ff");
     console.log(token);
     if (token !== null) {
       console.log("from login to contacts");
-      navigate(`${routes.contacts}`);
+      //   navigate(`${routes.contacts}`);
     }
   });
   return (

@@ -5,11 +5,11 @@ import RegisterPage from "./components/RegisterPage";
 import ContactsPage from "./components/ContactsPage";
 import UserMenu from "./components/UserMenu";
 import routes from "./components/routes";
-import { useEffect, useCallback } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { useRef } from "react";
 import authOperations from "./redux/auth/authOperations";
+import PrivateRoute from "./PrivateRoute";
+import RestrictedRoute from "./RestrictedRoute";
 function App() {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token);
@@ -35,20 +35,32 @@ function App() {
           <Link to={`${routes.contacts}`}>Contacts</Link>
         )}
       </div>
-      {/* {token !== null && <Navigate to={`${routes.contacts}`}></Navigate>} */}
       <Routes>
         <Route path={`${routes.home}`} element={<HomePage />}></Route>
-        {token === null ? (
-          <>
-            <Route path={`${routes.login}`} element={<LoginPage />}></Route>
-            <Route
-              path={`${routes.register}`}
-              element={<RegisterPage />}
-            ></Route>
-          </>
-        ) : (
-          <Route path={`${routes.contacts}`} element={<ContactsPage />}></Route>
-        )}
+        <Route
+          path={`${routes.login}`}
+          element={
+            <RestrictedRoute>
+              <LoginPage />
+            </RestrictedRoute>
+          }
+        ></Route>
+        <Route
+          path={`${routes.register}`}
+          element={
+            <RestrictedRoute>
+              <RegisterPage />
+            </RestrictedRoute>
+          }
+        ></Route>
+        <Route
+          path={`${routes.contacts}`}
+          element={
+            <PrivateRoute>
+              <ContactsPage />
+            </PrivateRoute>
+          }
+        ></Route>
       </Routes>
     </>
   );
