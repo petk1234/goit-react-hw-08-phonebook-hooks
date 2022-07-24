@@ -15,6 +15,8 @@ const failureCurrentUser = createAction("auth/failureCurrentUser");
 const requestLogoutUser = createAction("auth/requestLogoutUser");
 const successLogoutUser = createAction("auth/successLogoutUser");
 const failureLogoutUser = createAction("auth/failureLogoutUser");
+
+const setErrorNull = createAction("auth/setErrorNull");
 export default {
   requestRegisterUser,
   successRegisterUser,
@@ -31,4 +33,6 @@ export default {
   requestLogoutUser,
   successLogoutUser,
   failureLogoutUser,
+
+  setErrorNull,
 };

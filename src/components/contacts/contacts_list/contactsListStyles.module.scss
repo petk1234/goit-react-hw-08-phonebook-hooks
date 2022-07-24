@@ -1,0 +1,45 @@
+.contactsListContainer {
+  margin-top: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  @media all and (max-width: 600px) {
+    width: 350px;
+    margin-bottom: 25px;
+  }
+  @media all and (min-width: 601px) and (max-width: 900px) {
+    width: 500px;
+    margin-bottom: 35px;
+  }
+  @media all and (min-width: 901px) {
+    width: 800px;
+    margin-bottom: 45px;
+  }
+}
+.contactsList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  //   align-items: center;
+  //   border: 1px solid red;
+  padding: 0;
+  @media all and (max-width: 600px) {
+    width: 300px;
+    margin-bottom: 25px;
+  }
+  @media all and (min-width: 601px) and (max-width: 900px) {
+    width: 500px;
+    margin-bottom: 35px;
+  }
+  @media all and (min-width: 901px) {
+    width: 800px;
+    margin-bottom: 45px;
+  }
+}
+.title {
+  margin-bottom: 15px;
+}

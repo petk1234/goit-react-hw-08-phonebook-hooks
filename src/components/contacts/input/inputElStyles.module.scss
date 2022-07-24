@@ -1,0 +1,88 @@
+.formEl {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid red;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  padding: 15px 0 15px 0;
+  @media all and (max-width: 600px) {
+    width: 300px;
+    // height: 150px;
+    margin-bottom: 25px;
+  }
+  @media all and (min-width: 601px) and (max-width: 900px) {
+    width: 500px;
+    margin-bottom: 35px;
+  }
+  @media all and (min-width: 901px) {
+    width: 800px;
+    margin-bottom: 45px;
+  }
+  &Div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    @media all and (max-width: 600px) {
+      width: 250px;
+    }
+    @media all and (min-width: 601px) and (max-width: 900px) {
+      width: 450px;
+    }
+    @media all and (min-width: 901px) {
+      width: 700px;
+    }
+    &Input {
+      @media all and (max-width: 600px) {
+        width: 150px;
+      }
+      @media all and (min-width: 601px) and (max-width: 900px) {
+        width: 350px;
+        font-size: 20px;
+        height: 35px;
+      }
+      @media all and (min-width: 901px) {
+        width: 600px;
+        font-size: 35px;
+        height: 55px;
+      }
+    }
+    &Button {
+      margin-top: 10px;
+      justify-content: center;
+      background: url("./../../login/check.svg") no-repeat;
+      background-position: center;
+      background-size: 25px 25px;
+      border: 1px solid #000;
+      &:hover {
+        background-color: green;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+          rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+      }
+      @media all and (max-width: 600px) {
+        height: 30px;
+        width: 30px;
+        background-size: 25px 25px;
+      }
+      @media all and (min-width: 601px) and (max-width: 900px) {
+        height: 40px;
+        width: 40px;
+        background-size: 35px 35px;
+      }
+      @media all and (min-width: 901px) {
+        height: 50px;
+        width: 50px;
+        background-size: 45px 45px;
+      }
+    }
+  }
+}
+.span {
+  @media all and (min-width: 601px) and (max-width: 900px) {
+    font-size: 18px;
+  }
+  @media all and (min-width: 901px) {
+    font-size: 22px;
+  }
+}

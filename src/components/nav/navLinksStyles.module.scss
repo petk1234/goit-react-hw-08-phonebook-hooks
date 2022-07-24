@@ -1,0 +1,86 @@
+$colorNav: red;
+$popOutBorder: rgb(0, 0, 0);
+.menu {
+  &Disabled {
+    position: static;
+    display: flex;
+    justify-content: space-around;
+    @media all and (min-width: 350px) and (max-width: 600px) {
+      width: 350px;
+    }
+    @media all and (min-width: 601px) and (max-width: 900px) {
+      width: 601px;
+    }
+    @media all and (min-width: 901px) {
+      width: 900px;
+    }
+  }
+  &Abled {
+    @media all and (min-width: 350px) and (max-width: 900px) {
+      border: 2px solid $popOutBorder;
+      background-color: $colorNav;
+      position: fixed;
+      display: none;
+    }
+    @media all and (min-width: 901px) {
+      display: flex;
+      //   top: 0;
+      width: 200px;
+      height: 50px;
+      justify-content: space-around;
+      align-items: center;
+      border: none;
+      position: static;
+    }
+  }
+}
+.popOutImg {
+  @media all and (min-width: 350px) and (max-width: 900px) {
+    width: 30px;
+    height: 30px;
+    background: url(./icons/menu-burger.svg) no-repeat;
+    background-size: 25px 25px;
+    background-position: center;
+  }
+  @media all and (min-width: 901px) {
+    display: none;
+  }
+}
+.isPopOutImg {
+  @media all and (max-width: 901px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+  }
+  @media all and (min-width: 901px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+  }
+  &:hover {
+    @media all and (min-width: 350px) and (max-width: 900px) {
+      .menuAbled {
+        top: 100%;
+        display: block;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+.navLink {
+  text-decoration: none;
+  color: #000;
+  &:hover {
+    color: #fff;
+  }
+  @media all and (min-width: 601px) and (max-width: 900px) {
+    font-size: 18px;
+  }
+  @media all and (min-width: 901px) {
+    font-size: 22px;
+  }
+}

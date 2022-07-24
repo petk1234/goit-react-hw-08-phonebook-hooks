@@ -40,8 +40,23 @@ const token = createReducer(null, {
     return null;
   },
 });
+const error = createReducer("", {
+  [authActions.failureLoginUser]: (state, { type, payload }) => payload.message,
+  [authActions.failureRegisterUser]: (state, { type, payload }) =>
+    payload.message,
+  [authActions.failureLogoutUser]: (state, { type, payload }) =>
+    payload.message,
+  [authActions.failureCurrentUser]: (state, { type, payload }) =>
+    payload.message,
+  [authActions.successRegisterUser]: () => "",
+  [authActions.successLoginUser]: () => "",
+  [authActions.successLogoutUser]: () => "",
+  [authActions.successCurrentUser]: () => "",
+  [authActions.setErrorNull]: () => "",
+});
 const rootReducer = combineReducers({
   user: user,
   token: token,
+  error: error,
 });
 export default rootReducer;

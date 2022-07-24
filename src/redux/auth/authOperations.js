@@ -21,7 +21,7 @@ const registerUser = (name, email, password) => (dispatch) => {
       token.set(data.data.token);
       dispatch(authActions.successRegisterUser(data.data));
     })
-    .catch((error) => dispatch(authActions.failureRegisterUser()));
+    .catch((error) => dispatch(authActions.failureRegisterUser(error)));
 };
 const loginUser = (email, password) => (dispatch) => {
   dispatch(authActions.requestLoginUser());
@@ -35,11 +35,13 @@ const loginUser = (email, password) => (dispatch) => {
       token.set(data.data.token);
       dispatch(authActions.successLoginUser(data.data));
     })
-    .catch((error) => dispatch(authActions.failureLoginUser()));
+    .catch((error) => dispatch(authActions.failureLoginUser(error)));
 };
 
 const getCurrentUser = (token_) => (dispatch) => {
   token.set(token_);
+  console.log(token_);
+  console.log(axios.defaults.headers.common.Authorization);
   dispatch(authActions.requestCurrentUser());
   axios
     .get("https://connections-api.herokuapp.com/users/current")
@@ -47,8 +49,7 @@ const getCurrentUser = (token_) => (dispatch) => {
       console.log(data.data);
       dispatch(authActions.successCurrentUser(data.data));
     })
-    .catch((error) => dispatch(authActions.failureCurrentUser()));
-  axios.get();
+    .catch((error) => dispatch(authActions.failureCurrentUser(error)));
 };
 
 const logoutUser = () => (dispatch) => {
@@ -59,6 +60,6 @@ const logoutUser = () => (dispatch) => {
       token.unset();
       dispatch(authActions.successLogoutUser());
     })
-    .catch((error) => dispatch(authActions.failureLogoutUser()));
+    .catch((error) => dispatch(authActions.failureLogoutUser(error)));
 };
 export default { registerUser, loginUser, getCurrentUser, logoutUser };

@@ -1,0 +1,28 @@
+.userContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  @media all and (min-width: 250px) {
+    width: 150px;
+  }
+}
+.p {
+  padding: 0;
+  margin: 0;
+}
+.userButton {
+  width: 30px;
+  height: 30px;
+  background: url("./home.svg") no-repeat;
+  background-size: 23px 23px;
+  background-position: center;
+  border: 2px solid #000;
+  &:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  }
+}
+.span {
+  color: #fff;
+  font-weight: 500;
+}
