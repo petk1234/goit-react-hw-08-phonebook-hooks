@@ -44,17 +44,17 @@ const isLoading = createReducer(false, {
   [authActions.requestLoginUser]: () => true,
   [authActions.requestRegisterUser]: () => true,
   [authActions.requestCurrentUser]: () => true,
-  [authActions.requestLogoutUser]: () => true,
+  // [authActions.requestLogoutUser]: () => true,
 
   [authActions.successLoginUser]: () => false,
   [authActions.successRegisterUser]: () => false,
   [authActions.successCurrentUser]: () => false,
-  [authActions.successLogoutUser]: () => false,
+  // [authActions.successLogoutUser]: () => false,
 
   [authActions.failureLoginUser]: () => false,
   [authActions.failureRegisterUser]: () => false,
   [authActions.failureCurrentUser]: () => false,
-  [authActions.failureLogoutUser]: () => false,
+  // [authActions.failureLogoutUser]: () => false,
 });
 const error = createReducer("", {
   [authActions.failureLoginUser]: (state, { type, payload }) => payload.message,
