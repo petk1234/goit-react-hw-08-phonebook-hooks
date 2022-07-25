@@ -2,6 +2,7 @@ import authOperations from "../../redux/auth/authOperations";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./register.module.scss";
+import authActions from "../../redux/auth/authActions";
 function RegisterPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -21,10 +22,14 @@ function RegisterPage() {
   const handleRegister = (e) => {
     e.preventDefault();
     console.log("clicked: register");
-    dispatch(authOperations.registerUser(name, email, password));
-    setName("");
-    setEmail("");
-    setPassword("");
+    if (name.length < 15) {
+      dispatch(authOperations.registerUser(name, email, password));
+      setName("");
+      setEmail("");
+      setPassword("");
+    } else {
+      dispatch(authActions.inputLengthError());
+    }
   };
   return (
     <div className={styles.registerContainer}>

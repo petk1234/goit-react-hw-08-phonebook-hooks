@@ -16,6 +16,7 @@ const requestLogoutUser = createAction("auth/requestLogoutUser");
 const successLogoutUser = createAction("auth/successLogoutUser");
 const failureLogoutUser = createAction("auth/failureLogoutUser");
 
+const inputLengthError = createAction("auth/inputLengthError");
 const setErrorNull = createAction("auth/setErrorNull");
 export default {
   requestRegisterUser,
@@ -34,5 +35,6 @@ export default {
   successLogoutUser,
   failureLogoutUser,
 
+  inputLengthError,
   setErrorNull,
 };

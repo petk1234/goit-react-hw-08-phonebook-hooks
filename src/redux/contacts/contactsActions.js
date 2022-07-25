@@ -5,7 +5,7 @@ const successAddContact = createAction("contact/successAddContact");
 const failureAddContact = createAction("contact/failureAddContact");
 
 const requestGetContacts = createAction("contact/requestGetContacts");
-const succestGetContacts = createAction("contact/succestGetContacts");
+const successGetContacts = createAction("contact/successGetContacts");
 const failureGetContacts = createAction("contact/failureGetContacts");
 
 const requestRemoveContact = createAction("contact/requestRemoveContact");
@@ -19,7 +19,7 @@ export default {
   failureAddContact,
 
   requestGetContacts,
-  succestGetContacts,
+  successGetContacts,
   failureGetContacts,
 
   requestRemoveContact,

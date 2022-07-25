@@ -2,6 +2,8 @@ import { useState } from "react";
 import contactsOperations from "../../../redux/contacts/contactsOperations";
 import { useDispatch } from "react-redux";
 import styles from "./inputElStyles.module.scss";
+import contactsActions from "../../../redux/contacts/contactsActions";
+import authActions from "../../../redux/auth/authActions";
 function InputEl() {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
@@ -14,9 +16,13 @@ function InputEl() {
   };
   const buttonClick = (e) => {
     e.preventDefault();
-    dispatch(contactsOperations.addContact(name, number));
-    setName("");
-    setNumber("");
+    if (name.length < 15 && number.length < 11) {
+      dispatch(contactsOperations.addContact(name, number));
+      setName("");
+      setNumber("");
+    } else {
+      dispatch(authActions.inputLengthError());
+    }
   };
   return (
     <>

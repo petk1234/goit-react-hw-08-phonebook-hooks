@@ -3,7 +3,7 @@
   justify-content: space-around;
   align-items: center;
   @media all and (min-width: 250px) {
-    width: 150px;
+    min-width: 120px;
   }
 }
 .p {
@@ -12,6 +12,7 @@
 }
 .userButton {
   width: 30px;
+  margin-left: 20px;
   height: 30px;
   background: url("./home.svg") no-repeat;
   background-size: 23px 23px;

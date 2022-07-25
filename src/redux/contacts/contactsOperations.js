@@ -19,7 +19,7 @@ const getContacts = () => (dispatch) => {
     .get("/contacts")
     .then((data) => {
       console.log(data);
-      dispatch(contactsActions.succestGetContacts(data.data));
+      dispatch(contactsActions.successGetContacts(data.data));
     })
     .catch((error) => dispatch(contactsActions.failureGetContacts()));
 };

@@ -1,4 +1,4 @@
-import { createReducer } from "@reduxjs/toolkit";
+import { createReducer, isAllOf } from "@reduxjs/toolkit";
 import authActions from "./authActions";
 import { combineReducers } from "@reduxjs/toolkit";
 
@@ -40,6 +40,22 @@ const token = createReducer(null, {
     return null;
   },
 });
+const isLoading = createReducer(false, {
+  [authActions.requestLoginUser]: () => true,
+  [authActions.requestRegisterUser]: () => true,
+  [authActions.requestCurrentUser]: () => true,
+  [authActions.requestLogoutUser]: () => true,
+
+  [authActions.successLoginUser]: () => false,
+  [authActions.successRegisterUser]: () => false,
+  [authActions.successCurrentUser]: () => false,
+  [authActions.successLogoutUser]: () => false,
+
+  [authActions.failureLoginUser]: () => false,
+  [authActions.failureRegisterUser]: () => false,
+  [authActions.failureCurrentUser]: () => false,
+  [authActions.failureLogoutUser]: () => false,
+});
 const error = createReducer("", {
   [authActions.failureLoginUser]: (state, { type, payload }) => payload.message,
   [authActions.failureRegisterUser]: (state, { type, payload }) =>
@@ -52,11 +68,13 @@ const error = createReducer("", {
   [authActions.successLoginUser]: () => "",
   [authActions.successLogoutUser]: () => "",
   [authActions.successCurrentUser]: () => "",
+  [authActions.inputLengthError]: () => "Your input is too long",
   [authActions.setErrorNull]: () => "",
 });
 const rootReducer = combineReducers({
   user: user,
   token: token,
+  isLoading: isLoading,
   error: error,
 });
 export default rootReducer;
