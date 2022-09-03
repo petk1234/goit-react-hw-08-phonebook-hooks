@@ -35,7 +35,7 @@ const loginUser = (email, password) => (dispatch) => {
       token.set(data.data.token);
       dispatch(authActions.successLoginUser(data.data));
     })
-    .catch((error) => dispatch(authActions.failureLoginUser(error)));
+    .catch((error) => dispatch(authActions.failureLoginUser()));
 };
 
 const getCurrentUser = (token_) => (dispatch) => {

@@ -13,6 +13,7 @@ const successRemoveContact = createAction("contact/successRemoveContact");
 const failureRemoveContact = createAction("contact/failureRemoveContact");
 
 const changeFilter = createAction("contact/changeFilter");
+const contactError = createAction("contact/contactError");
 export default {
   requestAddContact,
   successAddContact,
@@ -27,4 +28,5 @@ export default {
   failureRemoveContact,
 
   changeFilter,
+  contactError,
 };

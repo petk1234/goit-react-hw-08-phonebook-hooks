@@ -57,7 +57,8 @@ const isLoading = createReducer(false, {
   // [authActions.failureLogoutUser]: () => false,
 });
 const error = createReducer("", {
-  [authActions.failureLoginUser]: (state, { type, payload }) => payload.message,
+  [authActions.failureLoginUser]: (state, { type, payload }) =>
+    "Invalid email or password",
   [authActions.failureRegisterUser]: (state, { type, payload }) =>
     payload.message,
   [authActions.failureLogoutUser]: (state, { type, payload }) =>
@@ -68,7 +69,7 @@ const error = createReducer("", {
   [authActions.successLoginUser]: () => "",
   [authActions.successLogoutUser]: () => "",
   [authActions.successCurrentUser]: () => "",
-  [authActions.inputLengthError]: () => "Your input is too long",
+  [authActions.inputLengthError]: (state, { type, payload }) => payload,
   [authActions.setErrorNull]: () => "",
 });
 const rootReducer = combineReducers({

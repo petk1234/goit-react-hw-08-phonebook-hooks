@@ -19,7 +19,6 @@ function ContactsList() {
                 timeout={500}
               >
                 <ListEl
-                  // key={contact.id}
                   name={contact.name}
                   number={contact.number}
                   id={contact.id}
@@ -31,4 +30,5 @@ function ContactsList() {
     </div>
   );
 }
+
 export default ContactsList;

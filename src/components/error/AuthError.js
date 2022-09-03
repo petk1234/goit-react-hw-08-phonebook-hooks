@@ -16,14 +16,12 @@ function AuthError() {
       console.log("ss ss");
       setShow(true);
       setTimeout(() => {
-        // dispatch(authActions.setErrorNull());
         setShow(false);
       }, 1000);
       setTimeout(() => {
         dispatch(authActions.setErrorNull());
       }, 2000);
     }
-    // }
   }, [authError]);
   return (
     <>
@@ -39,10 +37,8 @@ function AuthError() {
             className={styles.error}
             color="danger"
             fade={false}
-            // timeout={500}
             transition={{ baseClassActive: "", timeout: 500 }}
             toggle={() => {
-              // dispatch(authActions.setErrorNull());
               setShow(false);
             }}
           >

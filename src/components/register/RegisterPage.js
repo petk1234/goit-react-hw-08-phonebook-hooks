@@ -3,6 +3,7 @@ import { useState } from "react";
 import Loader from "../loader/Loader";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./register.module.scss";
+import FormEl from "../FormEl";
 import authActions from "../../redux/auth/authActions";
 function RegisterPage() {
   const [name, setName] = useState("");
@@ -20,24 +21,26 @@ function RegisterPage() {
   };
   const dispatch = useDispatch();
 
-  const handleRegister = (e) => {
-    e.preventDefault();
+  const handleRegister = (userFormInfo) => {
+    // e.preventDefault();
     console.log("clicked: register");
-    if (name.length < 15) {
-      dispatch(authOperations.registerUser(name, email, password));
-      setName("");
-      setEmail("");
-      setPassword("");
-    } else {
-      dispatch(authActions.inputLengthError());
-    }
+    const { name, email, password } = userFormInfo;
+    // if (name.length < 15) {
+    dispatch(authOperations.registerUser(name, email, password));
+    setName("");
+    setEmail("");
+    setPassword("");
+    // } else {
+    //   dispatch(authActions.inputLengthError());
+    // }
   };
   return (
     <>
       {isLoading === false ? (
         <div className={styles.registerContainer}>
           <h1>Register form</h1>
-          <form className={styles.formEl}>
+          <FormEl operation={handleRegister} formType="register" />
+          {/* <form className={styles.formEl}>
             <div className={styles.inputsContainer}>
               <div className={styles.formElDiv}>
                 <span className={styles.span}>Name</span>
@@ -67,7 +70,7 @@ function RegisterPage() {
             <div className={styles.formElDivButton}>
               <button className={styles.formButton} onClick={handleRegister} />
             </div>
-          </form>
+          </form> */}
         </div>
       ) : (
         <Loader />
