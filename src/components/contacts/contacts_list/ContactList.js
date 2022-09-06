@@ -3,12 +3,13 @@ import ListEl from "../contact/ListEl";
 import styles from "./contactsListStyles.module.scss";
 import transitions from "./transition.module.scss";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-function ContactsList() {
+function ContactsList({ children }) {
   const contacts = useSelector((state) => state.contactsInfo.contacts);
   const filter = useSelector((state) => state.contactsInfo.filter);
   return (
     <div className={styles.contactsListContainer}>
       <h1 className={styles.title}>Contacts</h1>
+      {children}
       <TransitionGroup component={"ul"} className={styles.contactsList}>
         {contacts.map(
           (contact) =>

@@ -3,4 +3,5 @@ export default {
   login: "/login",
   register: "/register",
   contacts: "/contacts",
+  profile: "/profile",
 };

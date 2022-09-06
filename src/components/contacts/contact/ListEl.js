@@ -12,11 +12,19 @@ function ListEl(props) {
       <div className={styles.listElDiv}>
         <p className={styles.p}>{`${name}: ${number}`}</p>
       </div>
-      <button
-        className={styles.listElButton}
-        value={id}
-        onClick={handleDelete}
-      ></button>
+      <div>
+        <a href={`tel:${number}`}>
+          <button
+            className={styles.listElCallButton}
+            // onClick={handleDelete}
+          ></button>
+        </a>
+        <button
+          className={styles.listElDeleteButton}
+          value={id}
+          onClick={handleDelete}
+        ></button>
+      </div>
     </li>
   );
 }

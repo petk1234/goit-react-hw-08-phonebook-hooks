@@ -8,7 +8,7 @@ function FilterEl() {
   };
   return (
     <div className={styles.formElDiv}>
-      <span className={styles.span}>Filter: </span>
+      <span className={styles.span}>Filter contacts you need: </span>
       <input
         className={styles.formElDivInput}
         onChange={handleChangeFilter}

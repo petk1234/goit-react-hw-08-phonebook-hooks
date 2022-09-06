@@ -1,16 +1,25 @@
 import contactsActions from "./contactsActions";
 import axios from "axios";
-
 axios.defaults.baseURL = "https://connections-api.herokuapp.com";
-const addContact = (name, number) => (dispatch) => {
-  dispatch(contactsActions.requestAddContact());
-  axios
-    .post("/contacts", { name: name, number: number })
-    .then((data) => {
-      console.log(data);
-      dispatch(contactsActions.successAddContact(data.data));
-    })
-    .catch((error) => dispatch(contactsActions.failureAddContact()));
+const addContact = (name, number) => (dispatch, prevState) => {
+  // dispatch(contactsActions.requestAddContact());
+  const contacts = prevState().contactsInfo.contacts;
+  const isAcceptedContactArr = contacts.filter(
+    (contact) => `${contact.name}:${contact.number}` !== `${name}:${number}`
+  );
+  const isAcceptedContact = isAcceptedContactArr.length === contacts.length;
+  if (isAcceptedContact) {
+    dispatch(contactsActions.requestAddContact());
+    axios
+      .post("/contacts", { name: name, number: number })
+      .then((data) => {
+        console.log(data);
+        dispatch(contactsActions.successAddContact(data.data));
+      })
+      .catch((error) => dispatch(contactsActions.failureAddContact()));
+  } else {
+    dispatch(contactsActions.failureAddContact("This contact already exists"));
+  }
 };
 
 const getContacts = () => (dispatch) => {

@@ -58,9 +58,9 @@ const isLoading = createReducer(false, {
 });
 const error = createReducer("", {
   [authActions.failureLoginUser]: (state, { type, payload }) =>
-    "Invalid email or password",
+    "User with this email doesn't exist",
   [authActions.failureRegisterUser]: (state, { type, payload }) =>
-    payload.message,
+    "User with this email already exists",
   [authActions.failureLogoutUser]: (state, { type, payload }) =>
     payload.message,
   [authActions.failureCurrentUser]: (state, { type, payload }) =>

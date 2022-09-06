@@ -3,12 +3,16 @@ import NavLinks from "../nav/NavLinks";
 import styles from "../../appStyles.module.scss";
 function Header({ token }) {
   return (
-    <header>
-      <div className={styles.headerContainer}>
-        <NavLinks />
-        {token !== null && <UserMenu />}
-      </div>
-    </header>
+    <>
+      {token !== null && (
+        <header>
+          <div className={styles.headerContainer}>
+            <NavLinks />
+            {token !== null && <UserMenu />}
+          </div>
+        </header>
+      )}
+    </>
   );
 }
 export default Header;

@@ -15,7 +15,6 @@ import { Route, Routes } from "react-router-dom";
 import RestrictedRoute from "./RestrictedRoute";
 import "bootstrap/dist/css/bootstrap.css";
 import styles from "./appStyles.module.scss";
-
 import React, { lazy, Suspense } from "react";
 
 const HomePage = lazy(() => import("./components/home/HomePage"));
@@ -25,6 +24,7 @@ const ContactsPage = lazy(() => import("./components/contacts/ContactsPage"));
 const Header = lazy(() => import("./components/header/Header"));
 const Loader = lazy(() => import("./components/loader/Loader"));
 const AuthError = lazy(() => import("./components/error/AuthError"));
+const UserPage = lazy(() => import("./components/userPage/UserPage"));
 function App() {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token);
@@ -43,7 +43,15 @@ function App() {
       <main>
         <Suspense fallback={<Loader />}>
           <Routes>
-            <Route path={`${routes.home}`} element={<HomePage />}></Route>
+            <Route
+              path={`${routes.home}`}
+              element={
+                <RestrictedRoute>
+                  {" "}
+                  <HomePage />
+                </RestrictedRoute>
+              }
+            ></Route>
             <Route
               path={`${routes.login}`}
               element={
@@ -68,6 +76,14 @@ function App() {
                 </PrivateRoute>
               }
             ></Route>
+            <Route
+              path={routes.profile}
+              element={
+                <PrivateRoute>
+                  <UserPage />
+                </PrivateRoute>
+              }
+            />
           </Routes>
         </Suspense>
       </main>

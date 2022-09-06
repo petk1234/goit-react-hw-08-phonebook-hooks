@@ -57,8 +57,8 @@ const logoutUser = () => (dispatch) => {
   axios
     .post("https://connections-api.herokuapp.com/users/logout")
     .then(() => {
-      token.unset();
       dispatch(authActions.successLogoutUser());
+      token.unset();
     })
     .catch((error) => dispatch(authActions.failureLogoutUser(error)));
 };

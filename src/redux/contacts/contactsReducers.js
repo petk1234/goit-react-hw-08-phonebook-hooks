@@ -28,6 +28,7 @@ const isLoading = createReducer(false, {
 });
 const error = createReducer("", {
   [contactsActions.contactError]: (state, { type, payload }) => payload,
+  [contactsActions.failureAddContact]: (state, { type, payload }) => payload,
 });
 const rootReducerSecond = combineReducers({
   contacts: contacts,

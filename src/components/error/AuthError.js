@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import authActions from "../../redux/auth/authActions";
+import contactsActions from "../../redux/contacts/contactsActions";
 import { Alert } from "reactstrap";
 import styles from "./errorStyles.module.scss";
 import { CSSTransition } from "react-transition-group";
@@ -9,10 +10,14 @@ import transitions from "./transition.module.scss";
 function AuthError() {
   const [show, setShow] = useState(true);
   const dispatch = useDispatch();
-  let authError = useSelector((state) => state.auth.error);
+  let [authError, contactError] = useSelector((state) => [
+    state.auth.error,
+    state.contactsInfo.error,
+  ]);
+  console.log(contactError);
   useEffect(() => {
     console.log("sss");
-    if (authError !== "") {
+    if (authError !== "" || contactError !== "") {
       console.log("ss ss");
       setShow(true);
       setTimeout(() => {
@@ -20,12 +25,13 @@ function AuthError() {
       }, 1000);
       setTimeout(() => {
         dispatch(authActions.setErrorNull());
+        dispatch(contactsActions.failureAddContact(""));
       }, 2000);
     }
-  }, [authError]);
+  }, [authError, contactError]);
   return (
     <>
-      {authError !== "" && (
+      {(authError !== "" || contactError !== "") && (
         <CSSTransition
           in={show}
           appear={true}
@@ -42,7 +48,7 @@ function AuthError() {
               setShow(false);
             }}
           >
-            {authError}
+            {authError || contactError}
           </Alert>
         </CSSTransition>
       )}

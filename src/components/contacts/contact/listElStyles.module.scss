@@ -2,21 +2,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #000;
+  // border: 1px solid #000;
   @media all and (max-width: 600px) {
-    min-width: 140px;
-    // height: 25px;
+    min-width: 320px;
+    height: 30px;
     margin-bottom: 25px;
   }
-  @media all and (min-width: 601px) and (max-width: 900px) {
-    width: 200px;
-    // height: 35px;
+  @media all and (min-width: 601px) {
+    width: 500px;
+    height: 60px;
     margin-bottom: 35px;
-  }
-  @media all and (min-width: 901px) {
-    width: 250px;
-    // height: 40px;
-    margin-bottom: 45px;
+    padding: 0 50px 0 50px;
   }
   &Div {
     padding-left: 10px;
@@ -24,44 +20,97 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    @media all and (max-width: 600px) {
-      min-width: 100px;
-    }
-    @media all and (min-width: 601px) and (max-width: 900px) {
-      width: 170px;
-    }
-    @media all and (min-width: 901px) {
-      width: 220px;
-    }
   }
-  &Button {
-    background: url("./cross.svg") no-repeat;
-    background-position: center;
+  // &DeleteButton,
+  // &CallButton {
+  //   // background: url("../../../images/close.png") no-repeat;
+  //   background-position: center;
+  //   background-size: 35px 35px;
+  //   // object-fit: contain;
+  //   height: 25px;
+  //   width: 25px;
+  //   // border: 1px solid #000;
+  //   border: none;
+  //   // height: 40px;
+  //   // width: 40px;
+
+  //   &:hover {
+  //     // background-color: red;
+  //     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 30px -12px inset,
+  //       rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  //   }
+  //   // @media all and (max-width: 600px) {
+  //   //   height: 35px;
+  //   //   width: 35px;
+  //   //   background-size: 35px 35px;
+  //   // }
+  //   // @media all and (min-width: 601px) {
+  //   //   height: 35px;
+  //   //   width: 35px;
+  //   //   // margin-right: 50px;
+  //   //   background-size: 35px 35px;
+  //   // }
+  // }
+  &DeleteButton {
+    background: url("../../../images/close.png") no-repeat center;
+    // background-position: center;
     // background-size: 35px 35px;
-    border: 1px solid #000;
+    // object-fit: contain;
+    height: 25px;
+    width: 25px;
+    // border: 1px solid #000;
+    border: none;
+    // margin-right: 7px;
     // height: 40px;
     // width: 40px;
 
     &:hover {
-      background-color: red;
-      box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+      // background-color: red;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 30px -12px inset,
+        rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+      // background-color: green;
+    }
+    // @media all and (max-width: 600px) {
+    //   height: 35px;
+    //   width: 35px;
+    //   background-size: 35px 35px;
+    // }
+    // @media all and (min-width: 601px) {
+    //   height: 35px;
+    //   width: 35px;
+    //   // margin-right: 50px;
+    //   background-size: 35px 35px;
+    // }
+  }
+  &CallButton {
+    background: url("../../../images/phone.png") no-repeat;
+    margin-right: 7px;
+    background-position: center;
+    // background-size: 35px 35px;
+    // object-fit: contain;
+    height: 25px;
+    width: 25px;
+    // border: 1px solid #000;
+    border: none;
+    // height: 40px;
+    // width: 40px;
+
+    &:hover {
+      // background-color: red;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 30px -12px inset,
         rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     }
-    @media all and (max-width: 600px) {
-      height: 100%;
-      width: 25px;
-      background-size: 20px 20px;
-    }
-    @media all and (min-width: 601px) and (max-width: 900px) {
-      height: 35px;
-      width: 35px;
-      background-size: 30px 30px;
-    }
-    @media all and (min-width: 901px) {
-      height: 40px;
-      width: 40px;
-      background-size: 35px 35px;
-    }
+    // @media all and (max-width: 600px) {
+    //   height: 35px;
+    //   width: 35px;
+    //   background-size: 35px 35px;
+    // }
+    // @media all and (min-width: 601px) {
+    //   height: 35px;
+    //   width: 35px;
+    //   // margin-right: 50px;
+    //   background-size: 35px 35px;
+    // }
   }
 }
 .p {

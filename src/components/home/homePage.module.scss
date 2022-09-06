@@ -1,0 +1,40 @@
+.home {
+  &Page,
+  &Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &Page {
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 100vh;
+  }
+  &Img {
+    width: 70%;
+  }
+  &Buttons {
+    margin-top: 20px;
+    display: flex;
+    // width: 50%;
+    width: 250px;
+    justify-content: space-around;
+  }
+  &Login,
+  &Register {
+    width: 100px;
+    // margin-right: 20px;
+    height: 30px;
+    border-radius: 10px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  &Login {
+    background-color: rgb(62, 199, 62);
+  }
+  &Register {
+    background-color: rgb(91, 148, 235);
+  }
+}

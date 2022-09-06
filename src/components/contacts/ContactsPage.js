@@ -16,10 +16,16 @@ function ContactsPage() {
     dispatch(contactsOperations.getContacts());
   }, []);
   return (
-    <div className={styles.contactsContainer}>
-      <InputEl />
-      <FilterEl />
-      {isLoading === false ? <ContactsList /> : <Loader />}
+    <div style={{ height: "100%" }}>
+      {isLoading === true && <Loader />}
+      <div className={styles.contactsContainer}>
+        <InputEl />
+        {/* <FilterEl /> */}
+        <ContactsList>
+          <FilterEl />
+        </ContactsList>
+        {/* {isLoading === true && <Loader />} */}
+      </div>
     </div>
   );
 }

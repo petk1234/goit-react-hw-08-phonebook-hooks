@@ -1,16 +1,10 @@
-import { useSelector, useDispatch } from "react-redux";
-import authOperations from "../../redux/auth/authOperations";
-import { useNavigate } from "react-router-dom";
-import routes from "../routes";
+import { useSelector } from "react-redux";
+import Button from "../button/Button";
+import useLogout from "../../customHooks/useLogout";
 import styles from "./userMenuStyles.module.scss";
 function UserMenu() {
   let name = useSelector((state) => state.auth.user.name);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const handleLogOut = (e) => {
-    navigate(`${routes.login}`);
-    dispatch(authOperations.logoutUser());
-  };
+  const handleLogOut = useLogout();
   return (
     <>
       {name !== undefined ? (
@@ -18,7 +12,7 @@ function UserMenu() {
           <p className={styles.p}>
             Hello, <span className={styles.span}>{name}</span>
           </p>
-          <button className={styles.userButton} onClick={handleLogOut}></button>
+          <Button style={styles.userButton} operation={handleLogOut}></Button>
         </div>
       ) : (
         <div className={styles.userContainer}>
