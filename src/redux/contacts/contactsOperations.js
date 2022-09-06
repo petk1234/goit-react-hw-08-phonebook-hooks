@@ -2,7 +2,6 @@ import contactsActions from "./contactsActions";
 import axios from "axios";
 axios.defaults.baseURL = "https://connections-api.herokuapp.com";
 const addContact = (name, number) => (dispatch, prevState) => {
-  // dispatch(contactsActions.requestAddContact());
   const contacts = prevState().contactsInfo.contacts;
   const isAcceptedContactArr = contacts.filter(
     (contact) => `${contact.name}:${contact.number}` !== `${name}:${number}`
@@ -13,7 +12,6 @@ const addContact = (name, number) => (dispatch, prevState) => {
     axios
       .post("/contacts", { name: name, number: number })
       .then((data) => {
-        console.log(data);
         dispatch(contactsActions.successAddContact(data.data));
       })
       .catch((error) => dispatch(contactsActions.failureAddContact()));
@@ -27,7 +25,6 @@ const getContacts = () => (dispatch) => {
   axios
     .get("/contacts")
     .then((data) => {
-      console.log(data);
       dispatch(contactsActions.successGetContacts(data.data));
     })
     .catch((error) => dispatch(contactsActions.failureGetContacts()));

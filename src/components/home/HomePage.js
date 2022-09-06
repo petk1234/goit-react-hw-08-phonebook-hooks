@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import Button from "../button/Button";
 import routes from "../routes";
 import styles from "./homePage.module.scss";
-// import greetings from "../../images/mobile.svg";
 import greetings from "../../images/greetings.png";
 function HomePage() {
   return (

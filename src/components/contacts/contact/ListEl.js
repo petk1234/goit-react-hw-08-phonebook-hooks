@@ -14,10 +14,7 @@ function ListEl(props) {
       </div>
       <div>
         <a href={`tel:${number}`}>
-          <button
-            className={styles.listElCallButton}
-            // onClick={handleDelete}
-          ></button>
+          <button className={styles.listElCallButton}></button>
         </a>
         <button
           className={styles.listElDeleteButton}

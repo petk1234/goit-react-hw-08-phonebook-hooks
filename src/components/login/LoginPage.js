@@ -6,8 +6,6 @@ import authOperations from "../../redux/auth/authOperations";
 import styles from "./login.module.scss";
 import routes from "../routes";
 import returnImg from "../../images/return.png";
-import { Formik } from "formik";
-import * as yup from "yup";
 import Form from "../Form";
 function LoginPage() {
   const dispatch = useDispatch();

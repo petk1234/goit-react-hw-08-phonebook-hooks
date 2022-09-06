@@ -7,18 +7,15 @@ import { Alert } from "reactstrap";
 import styles from "./errorStyles.module.scss";
 import { CSSTransition } from "react-transition-group";
 import transitions from "./transition.module.scss";
-function AuthError() {
+function Error() {
   const [show, setShow] = useState(true);
   const dispatch = useDispatch();
   let [authError, contactError] = useSelector((state) => [
     state.auth.error,
     state.contactsInfo.error,
   ]);
-  console.log(contactError);
   useEffect(() => {
-    console.log("sss");
     if (authError !== "" || contactError !== "") {
-      console.log("ss ss");
       setShow(true);
       setTimeout(() => {
         setShow(false);
@@ -55,4 +52,4 @@ function AuthError() {
     </>
   );
 }
-export default AuthError;
+export default Error;

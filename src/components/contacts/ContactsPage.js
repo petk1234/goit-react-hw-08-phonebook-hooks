@@ -10,9 +10,7 @@ function ContactsPage() {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.token);
   const isLoading = useSelector((state) => state.contactsInfo.isLoading);
-  console.log(isAuthenticated);
   useEffect(() => {
-    console.log("useEffect");
     dispatch(contactsOperations.getContacts());
   }, []);
   return (
@@ -20,11 +18,9 @@ function ContactsPage() {
       {isLoading === true && <Loader />}
       <div className={styles.contactsContainer}>
         <InputEl />
-        {/* <FilterEl /> */}
         <ContactsList>
           <FilterEl />
         </ContactsList>
-        {/* {isLoading === true && <Loader />} */}
       </div>
     </div>
   );

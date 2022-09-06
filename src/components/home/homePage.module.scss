@@ -17,14 +17,12 @@
   &Buttons {
     margin-top: 20px;
     display: flex;
-    // width: 50%;
     width: 250px;
     justify-content: space-around;
   }
   &Login,
   &Register {
     width: 100px;
-    // margin-right: 20px;
     height: 30px;
     border-radius: 10px;
     color: #fff;

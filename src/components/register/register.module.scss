@@ -9,7 +9,6 @@
   }
   &Container {
     display: flex;
-    // height: 100vh;
     position: relative;
     flex-direction: column;
     align-items: center;
@@ -22,14 +21,10 @@
     @media all and (min-width: 601px) {
       width: 600px;
     }
-    // @media all and (min-width: 901px) {
-    //   max-width: 900px;
-    // }
   }
   &ToHome {
     position: absolute;
     left: 10px;
-    // top: -10px;
     &:hover {
       transform: scale(1.1);
     }
@@ -39,28 +34,20 @@
 .formEl {
   display: flex;
   margin-bottom: 20px;
-  // background-color: red;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
   @media all and (max-width: 600px) {
     width: 350px;
-    // height: 170px;
   }
   @media all and (min-width: 601px) {
     width: 600px;
-    // height: 250px;
   }
-  // @media all and (min-width: 901px) {
-  //   width: 900px;
-  //   height: 350px;
-  // }
   &Div {
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
-    // align-items: center;
     flex-direction: column;
     @media all and (max-width: 600px) {
       max-width: 280px;
@@ -68,9 +55,6 @@
     @media all and (min-width: 601px) {
       max-width: 500px;
     }
-    // @media all and (min-width: 901px) {
-    //   width: 800px;
-    // }
     &Input {
       margin-top: 10px;
       margin-bottom: 10px;
@@ -86,11 +70,6 @@
         height: 60px;
         font-size: 16px;
       }
-      // @media all and (min-width: 901px) {
-      //   width: 650px;
-      //   height: 90px;
-      //   font-size: 35px;
-      // }
     }
   }
   &DivButton {
@@ -102,9 +81,6 @@
   @media all and (min-width: 601px) {
     font-size: 18px;
   }
-  // @media all and (min-width: 901px) {
-  //   font-size: 22px;
-  // }
 }
 .inputsContainer {
   display: flex;
@@ -133,37 +109,9 @@
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
       rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   }
-  // @media all and (max-width: 600px) {
-  //   height: 30px;
-  //   width: 30px;
-  //   background-size: 25px 25px;
-  // }
-  // @media all and (min-width: 601px) {
-  //   height: 50px;
-  //   width: 50px;
-  //   background-size: 45px 45px;
-  // }
 }
 .invalidInput {
-  // border: 30px;
   border-color: red;
-  // border-color: rgb(14, 255, 14);
-  // margin-top: 10px;
-  // margin-bottom: 10px;
-  // @media all and (max-width: 600px) {
-  //   width: 200px;
-  //   height: 30px;
-  // }
-  // @media all and (min-width: 601px) and (max-width: 900px) {
-  //   width: 400px;
-  //   height: 60px;
-  //   font-size: 25px;
-  // }
-  // @media all and (min-width: 901px) {
-  //   width: 650px;
-  //   height: 90px;
-  //   font-size: 35px;
-  // }
 }
 .inputError {
   margin: 0;

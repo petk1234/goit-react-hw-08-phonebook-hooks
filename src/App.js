@@ -1,11 +1,3 @@
-// import HomePage from "./components/home/HomePage";
-// import LoginPage from "./components/login/LoginPage";
-// import RegisterPage from "./components/register/RegisterPage";
-// import ContactsPage from "./components/contacts/ContactsPage";
-// import Header from "./components/header/Header";
-// import Loader from "./components/loader/Loader";
-// import AuthError from "./components/error/AuthError";
-
 import routes from "./components/routes";
 import { useEffect, useTransition } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -23,7 +15,7 @@ const RegisterPage = lazy(() => import("./components/register/RegisterPage"));
 const ContactsPage = lazy(() => import("./components/contacts/ContactsPage"));
 const Header = lazy(() => import("./components/header/Header"));
 const Loader = lazy(() => import("./components/loader/Loader"));
-const AuthError = lazy(() => import("./components/error/AuthError"));
+const Error = lazy(() => import("./components/error/Error"));
 const UserPage = lazy(() => import("./components/userPage/UserPage"));
 function App() {
   const dispatch = useDispatch();
@@ -31,7 +23,6 @@ function App() {
 
   useEffect(() => {
     let myStorage = window.localStorage;
-    console.log(myStorage.getItem("token"));
     if (myStorage.getItem("token") !== null) {
       dispatch(authOperations.getCurrentUser(myStorage.getItem("token")));
     }
@@ -39,7 +30,7 @@ function App() {
   return (
     <div className={styles.appContainer}>
       <Header token={token} />
-      <AuthError />
+      <Error />
       <main>
         <Suspense fallback={<Loader />}>
           <Routes>

@@ -1,5 +1,4 @@
 import authOperations from "../../redux/auth/authOperations";
-import { useState } from "react";
 import Loader from "../loader/Loader";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -7,7 +6,6 @@ import routes from "../routes";
 import styles from "./register.module.scss";
 import Form from "../Form";
 import returnImg from "../../images/return.png";
-import authActions from "../../redux/auth/authActions";
 function RegisterPage() {
   const isLoading = useSelector((state) => state.auth.isLoading);
   const dispatch = useDispatch();

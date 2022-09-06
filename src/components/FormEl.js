@@ -8,7 +8,6 @@ export default function FormEl({
   errors,
   touched,
 }) {
-  console.log(errors);
   return (
     <>
       <div className={styles.formElDiv}>
@@ -32,7 +31,6 @@ export default function FormEl({
           <p className={styles.inputError}>{errors[name]}</p>
         )}
       </div>
-      {/* {errors[name] && touched[name] && <p>{errors[name]}</p>} */}
     </>
   );
 }

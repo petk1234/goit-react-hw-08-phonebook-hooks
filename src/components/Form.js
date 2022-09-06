@@ -6,8 +6,6 @@ export default function Form({ operation, formType, styles, children }) {
       initialValues={{ name: "", email: "", password: "", phone: "" }}
       validate={(values, touched) => {
         const errors = {};
-        console.log(values);
-        console.log("tttt: ", touched);
         if (formType === "register" || formType === "login") {
           if (!values.email) {
             errors.email = "Required email";
@@ -41,7 +39,6 @@ export default function Form({ operation, formType, styles, children }) {
             errors.phone = "max length is 13 symbols";
           }
         }
-        console.log(errors);
         return errors;
       }}
       onSubmit={(values, { setTouched }) => {
@@ -97,36 +94,6 @@ export default function Form({ operation, formType, styles, children }) {
                   errors={errors}
                   touched={touched}
                 />
-                {/* <div className={styles.formElDiv}>
-                  <span className={styles.span}>Email</span>
-                  <input
-                    value={values.email}
-                    type="text"
-                    name="email"
-                    className={
-                      errors.email === undefined
-                        ? styles.formElDivInput
-                        : `${styles.formElDivInput} ${styles.invalidInput}`
-                    }
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  ></input>
-                </div>
-                {errors.email && touched.email && <p>{errors.email}</p>} */}
-                {/* <div className={styles.formElDiv}>
-                  <span className={styles.span}>Password</span>
-                  <input
-                    value={values.password}
-                    name="password"
-                    type="password"
-                    className={styles.formElDivInput}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  ></input>
-                </div>
-                {errors.password && touched.password && (
-                  <p>{errors.password}</p>
-                )} */}
               </>
             )}
             {formType === "contact" && (
@@ -140,20 +107,6 @@ export default function Form({ operation, formType, styles, children }) {
                 errors={errors}
                 touched={touched}
               />
-              //   <>
-              //     <div className={styles.formElDiv}>
-              //       <span className={styles.span}>Number: </span>
-              //       <input
-              //         className={styles.formElDivInput}
-              //         onChange={handleChange}
-              //         type="tel"
-              //         onBlur={handleBlur}
-              //         name="phone"
-              //         value={values.phone}
-              //       />
-              //     </div>
-              //     {errors.phone && touched.phone && <p>{errors.phone}</p>}
-              //   </>
             )}
           </div>
           <div className={styles.formElDivButton}>

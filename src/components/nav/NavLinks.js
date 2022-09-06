@@ -2,17 +2,12 @@ import { Link } from "react-router-dom";
 import routes from "../routes";
 import { useSelector } from "react-redux";
 import navLinksStyles from "./navLinksStyles.module.scss";
-import photo from "./icons/menu-burger.svg";
 import { useState } from "react";
 function NavLinks() {
-  console.log(photo);
   const token = useSelector((state) => state.auth.token);
   const [isActive, setActive] = useState(false);
   const handleClick = () => {
     setActive(true);
-    // setTimeout(() => {
-    //   setActive(false);
-    // }, 200);
   };
   return (
     <>
@@ -20,28 +15,18 @@ function NavLinks() {
         <div className={navLinksStyles.isPopOutImg}>
           <div
             className={navLinksStyles.clickController}
-            // style={{ position: "absolute", height: "80%", width: "100%" }}
-            // onClick={() => {
-            //   setActive(false);
-            // }}
             onMouseEnter={() => {
               setActive(false);
             }}
-          ></div>
+          />
           <div className={navLinksStyles.popOutImg}>
             <div
-              className={navLinksStyles.navLinkTail}
-              // style={{
-              //   width: "20px",
-              //   height: "20px",
-              //   top: "75%",
-              //   left: "20px",
-              //   position: "absolute",
-              //   backgroundColor: "white",
-              //   // borderRadius: "-10px",
-              //   transform: "rotate( 45deg )",
-              // }}
-            ></div>
+              className={
+                isActive
+                  ? navLinksStyles.menuDisabled
+                  : navLinksStyles.navLinkTail
+              }
+            />
             <div
               className={
                 isActive
@@ -54,7 +39,6 @@ function NavLinks() {
                   <Link
                     className={navLinksStyles.navLink}
                     to={`${routes.home}`}
-                    onClick={handleClick}
                   >
                     Home
                   </Link>

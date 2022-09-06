@@ -17,7 +17,6 @@ const registerUser = (name, email, password) => (dispatch) => {
       password: password,
     })
     .then((data) => {
-      console.log(data);
       token.set(data.data.token);
       dispatch(authActions.successRegisterUser(data.data));
     })
@@ -31,7 +30,6 @@ const loginUser = (email, password) => (dispatch) => {
       password: password,
     })
     .then((data) => {
-      console.log(data.data);
       token.set(data.data.token);
       dispatch(authActions.successLoginUser(data.data));
     })
@@ -40,13 +38,10 @@ const loginUser = (email, password) => (dispatch) => {
 
 const getCurrentUser = (token_) => (dispatch) => {
   token.set(token_);
-  console.log(token_);
-  console.log(axios.defaults.headers.common.Authorization);
   dispatch(authActions.requestCurrentUser());
   axios
     .get("https://connections-api.herokuapp.com/users/current")
     .then((data) => {
-      console.log(data.data);
       dispatch(authActions.successCurrentUser(data.data));
     })
     .catch((error) => dispatch(authActions.failureCurrentUser(error)));
